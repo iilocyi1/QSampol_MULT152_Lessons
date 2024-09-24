@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7628899199327313138}
   - component: {fileID: 7628899199336870716}
   - component: {fileID: 7628899199327313137}
+  - component: {fileID: 7002084903080910080}
   m_Layer: 0
   m_Name: ProjectileWife 1
   m_TagString: Untagged
@@ -72,6 +73,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+--- !u!114 &7002084903080910080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628899199327469714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1bc7c7d338d1b4dbe7783af1959899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7628899199327469718
 GameObject:
   m_ObjectHideFlags: 0
