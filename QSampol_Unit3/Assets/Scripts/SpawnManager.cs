@@ -6,12 +6,14 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject obPrefab;
     private Vector3 spawnPos = new Vector3(30, 0, 0);
-
+    private PlayerController playerCtrl;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawnob", 2.5f, 2.5f);
         
+        InvokeRepeating("Spawnob", 2.5f, 2.5f);
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +25,9 @@ public class SpawnManager : MonoBehaviour
 
     void Spawnob()
     {
-        Instantiate(obPrefab, spawnPos, obPrefab.transform.rotation);
+        if (!playerCtrl.gameOver)
+        {
+            Instantiate(obPrefab, spawnPos, obPrefab.transform.rotation);
+        }
     }
 }
