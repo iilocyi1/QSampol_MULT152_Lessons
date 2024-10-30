@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 100.0f;
     public float powerUpSpeed = 10.0f;
-
+    public GameObject powerUpIndicator;
     bool hasPowerup;
         //led before the first frame update
     void Start()
@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
             rendererPlayer.material.color = new Color(1.0f + forwardInput, 1.0f, 1.0f + forwardInput);
 
         }
+
+        powerUpIndicator.transform.position = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             Destroy(other.gameObject);
+            StartCoroutine(PowerUPcountdown());
+            powerUpIndicator.SetActive(true);
         }
     }
 
@@ -62,4 +66,11 @@ public class PlayerController : MonoBehaviour
 
 
      }
+    
+    IEnumerator PowerUPcountdown()
+    {
+        yield return new WaitForSeconds(8);
+        hasPowerup = false;
+        powerUpIndicator.SetActive(false);
+    }
 }
